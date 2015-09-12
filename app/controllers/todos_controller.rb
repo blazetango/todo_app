@@ -1,5 +1,5 @@
 class TodosController < ApplicationController
-	before_action :set_task, only: [:create, :mark_complete, :mark_incomplete, :destroy]
+	before_action :set_task, only: [:mark_complete, :mark_incomplete, :destroy]
   def index
     set_user_task_scope
   end
