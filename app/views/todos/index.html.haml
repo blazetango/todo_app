@@ -1,0 +1,14 @@
+.container
+  .row
+    .col-md-4
+      .well
+        %ul.nav.nav-list
+          %li
+            = link_to "Home", root_path, class: 'active success'
+          %li.active
+            = link_to "Logout", destroy_user_session_path, class: 'active success', method: :delete
+    .col-md-8
+      = render 'form'
+    #todo_list  
+      = render 'todo'
+

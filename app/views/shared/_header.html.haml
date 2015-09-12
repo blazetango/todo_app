@@ -1,0 +1,19 @@
+%nav.navbar.navbar-inverse
+  .container-fluid
+    / Brand and toggle get grouped for better mobile display
+    .navbar-header
+      %button.navbar-toggle.collapsed{"aria-expanded" => "false", "data-target" => "#bs-example-navbar-collapse-9", "data-toggle" => "collapse", :type => "button"}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      = link_to 'Todo Application', root_url, class: 'navbar-brand'
+    / Collect the nav links, forms, and other content for toggling
+    #bs-example-navbar-collapse-9.collapse.navbar-collapse
+      %ul.nav.navbar-nav
+        %li.active
+          = link_to "Welcome #{current_user.email.split('@').first}", root_url
+        %li.active
+          = link_to 'Logout', destroy_user_session_path, method: :delete
+    / /.navbar-collapse
+  / /.container-fluid

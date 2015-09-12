@@ -1,0 +1,22 @@
+.row
+  .col-md-6
+    - if @incompleted_tasks
+      %h4
+        = "InComplete Task(#{@incompleted_tasks.count})"
+      %ul.list-group
+        - @incompleted_tasks.each do |incom_task|
+          %li.list-group-item.list-group-item-info
+            = incom_task.name
+            = link_to "Mark Complete", mark_complete_path(incom_task), class: 'label label-primary', remote: true
+
+.row
+  .col-md-6.col-md-offset-4
+    -if @completed_tasks
+      %h4
+        = "Completed Task(#{@completed_tasks.count})"
+      %ul.list-group
+        - @completed_tasks.each do |com_task|
+          %li.list-group-item.list-group-item-success.completed_task
+            = com_task.name
+            = link_to "Mark InComplete", mark_incomplete_path(com_task), class: 'label label-info incompleted_tasks', remote: true 
+            = link_to "Delete", todo_path(com_task), method: :delete, class: 'lable label-warning'

@@ -1,0 +1,9 @@
+.row
+	.col-md-9
+		= form_for :task, url: todos_path, remote: true do |f|
+			.form-group
+				= f.label 'Todo Name'
+				%br/
+				= f.text_field :name, class: 'form-control', placeholder: 'Enter Your Todo'
+			.form-group
+				= f.submit nil, class: 'form-control btn btn-primary btn-success'
